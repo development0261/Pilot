@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Home/', include('home.urls')),
     path('Course/', include('course.urls')),
+    path('tinymce/', include('tinymce.urls')),
     path('', hm_view.index, name="index"),
 ]
