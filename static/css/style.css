@@ -1945,4 +1945,58 @@ section.register_wrp.register_wrp {
 
   width: 374px;
   height: 207px;
+  border-radius: 20px;
+  margin-left: -20px;
+}
+.bouncing-text {
+  position: relative;
+  display: flex;
+  font-size: 22px;
+  font-weight: 900;
+  font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+}
+
+.c, .l, .o, .s, .e, .d {
+  position: relative;
+  color: #4cc9f0;
+}
+
+.c {
+  animation: bounce 1s ease infinite;
+  -webkit-animation: bounce 1s ease infinite;
+}
+
+.l {
+  animation: bounce 1s ease infinite .1s;
+  -webkit-animation: bounce 1s ease infinite .1s;
+}
+
+.o {
+  animation: bounce 1s ease infinite .2s;
+  -webkit-animation: bounce 1s ease infinite .2s;
+}
+
+.s {
+  animation: bounce 1s ease infinite .3s;
+  -webkit-animation: bounce 1s ease infinite .3s;
+}
+
+.e {
+  animation: bounce 1s ease infinite .4s;
+  -webkit-animation: bounce 1s ease infinite .4s;
+}
+
+.d {
+  animation: bounce 1s ease infinite .5s;
+ -webkit-animation: bounce 1s ease infinite .5s;
+}
+
+
+@-webkit-keyframes bounce {
+        0%   { transform: scale(1,1) translateY(0); }
+        10%  { transform: scale(1.1,.9) translateY(0); }
+        30%  { transform: scale(.9,1.1)   translateY(-10px);}
+        50%  { transform: scale(1.05,.95) translateY(0); }
+
+
 }

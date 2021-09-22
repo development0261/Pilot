@@ -5,16 +5,44 @@ from geopy.geocoders import Nominatim
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from django.template.loader import render_to_string
+from datetime import date
 
 
 # Create your views here.
 
 
 def course_detail(request):
-    data = Course.objects.all()
+    city_list = [
+        "Surat",
+        "Valsad",
+        "Seattle",
+        "Unknown",
+        "New York City",
+        "Miami",
+        "Philadelphia",
+        "Houston",
+        "Atlanta",
+        "Boston",
+        "Chicago",
+        "Los Angeles",
+        "Dallas",
+        "San Diego",
+    ]
+    for i in city_list:
+        try:
+            data = Course.objects.get(course_city__city_name=i)
+            end_date = data.course_end_date
+            today = date.today()
+            if end_date < today:
+                data.status = False
+                data.save()
+            else:
+                data.status = True
+                data.save()
+        except:
+            pass
     return render(
-        request, "course-details.html", {"data": data}
-    )
+        request, "course-details.html")
 
 
 def demo(request):

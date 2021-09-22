@@ -35,14 +35,12 @@
             </div>
             <div class="course-info d-flex justify-content-between align-items-center">
               <h5>Date</h5>
-                <span id="course_start_date"></span>
+                <span id="course_start_end_date"></span>
 
             </div>
-              <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Till</h5>
-               <span id="course_end_date"></span>
+              <span id="status">
 
-            </div>
+              </span>
 
             <div class="course-location">
               <span id="course-location"></span>
@@ -75,14 +73,7 @@
                   type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Features and Benefits
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings"
-                  type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Nostrum qui quasi</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-iusto"
-                  type="button" role="tab" aria-controls="v-pills-iusto" aria-selected="false">Iusto ut expedita aut</a>
-              </li>
+
             </ul>
           </div>
           <div class="col-lg-9 mt-4 mt-lg-0">
@@ -122,35 +113,6 @@
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static 'img/course-details-tab-3.png' %}" alt="" class="img-fluid">
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
-                    <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis
-                      delectus</p>
-                    <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam
-                      fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores
-                      sed qui veritatis aperiam quia a laborum inventore</p>
-                  </div>
-                  <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static 'img/course-details-tab-4.png' %}" alt="" class="img-fluid">
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="v-pills-iusto" role="tabpanel" aria-labelledby="v-pills-iusto-tab">
-                <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
-                    <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
-                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut
-                      quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae
-                      molestiae voluptate vel</p>
-                  </div>
-                  <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static 'img/course-details-tab-5.png' %}" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -599,16 +561,31 @@
         success:function(res){
             var data = JSON.parse(res.data)
             var fields = data[0].fields
+            if (fields.status === false){
+                $("#status").append(`
+                      <div class="course-info d-flex justify-content-between align-items-center">
+                         <div class="bouncing-text">
+                          <div class="c">C&nbsp;</div>
+                          <div class="l">L&nbsp;</div>
+                          <div class="o">O&nbsp;</div>
+                          <div class="s">S&nbsp;</div>
+                          <div class="e">E&nbsp;</div>
+                          <div class="d">D&nbsp;</div>
+                        </div>
+                      </div>
+                `)
+                var date = document.getElementById('course_start_end_date');
+                date.style = 'text-decoration: line-through';
+            }
+
 
             $("#course_title").append(`
             <h4>${fields['course_title']}</h4>
             `)
-            $("#course_start_date").append(`
-                <p>${fields['course_start_date']}</p>
+            $("#course_start_end_date").append(`
+                <p>${fields['course_start_date']} / ${fields['course_end_date']}</p>
             `)
-            $('#course_end_date').append(`
-                <p>${fields['course_end_date']}</p>
-            `)
+
             $('#course_image').append(`
                 <img src="/media/${fields['course_image']}" class="img-fluid" alt="">
             `)
