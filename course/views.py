@@ -58,7 +58,7 @@ def ajax_filter(request):
         print(second_add)
         print("**********")
         print("**********")
-        check = [i for i in city_list if i in split]
+        check = [i for i in city_list if i in first_index]
         if check:
             data = Course.objects.get(
                 course_city__city_name__in=check
