@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from home import views as hm_view
+from django.conf.urls import url
+from django.conf import settings
+from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,3 +27,8 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('', hm_view.index, name="index"),
 ]
+
+urlpatterns += [url(r'^media/(?P<path>.*)$', serve, {
+    'document_root': settings.MEDIA_ROOT,
+}),
+                ]

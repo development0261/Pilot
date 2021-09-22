@@ -15,15 +15,30 @@ CHOICES_CITY = (
     ("Houston", "Houston"),
     ("Atlanta", "Atlanta"),
     ("Miami", "Miami"),
+    ("Surat", "Surat"),
+    ("Valsad", "Valsad"),
 )
 
 
-class Course(models.Model):
+class City(models.Model):
     city_name = models.CharField(
         max_length=100,
         choices=CHOICES_CITY,
         default=CHOICES_CITY[0],
         verbose_name="City Name",
+    )
+
+    def __str__(self):
+        return self.city_name
+
+
+class Course(models.Model):
+    course_city = models.ForeignKey(
+        City,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        verbose_name="Course City Name",
     )
     course_title = models.CharField(
         max_length=500,

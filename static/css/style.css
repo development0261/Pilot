@@ -1940,3 +1940,9 @@ section.register_wrp .log_sign_form.active .signinBx .imgBx {
 section.register_wrp.register_wrp {
   padding-top: 100px;
 }
+
+#map {
+
+  width: 374px;
+  height: 207px;
+}

@@ -8,30 +8,18 @@
       <div class="container" data-aos="fade-up">
         <div class="row">
           <div class="col-lg-8">
-            <img src="{% static 'img/course-details.jpg' %}" class="img-fluid" alt="">
+              <span id="course_image"></span>
+
             <h3>Course Description</h3>
-            <p> Qui et explicabo voluptatem et ab qui vero et voluptas. Sint voluptates temporibus quam autem. Atque
-              nostrum voluptatum laudantium a doloremque enim et ut dicta. Nostrum ducimus est iure minima totam
-              doloribus nisi ullam deserunt. Corporis aut officiis sit nihil est. Labore aut sapiente aperiam. Qui
-              voluptas qui vero ipsum ea voluptatem. Omnis et est. Voluptatem officia voluptatem adipisci et iusto
-              provident doloremque consequatur. Quia et porro est. Et qui corrupti laudantium ipsa. Eum quasi saepe
-              aperiam qui delectus quaerat in. Vitae mollitia ipsa quam. Ipsa aut qui numquam eum iste est dolorum. Rem
-              voluptas ut sit ut. </p>
+              <span id="Course_Description"></span>
 
-              <h3>Course Objective</h3>
-            <p> Qui et explicabo voluptatem et ab qui vero et voluptas. Sint voluptates temporibus quam autem. Atque
-              nostrum voluptatum laudantium a doloremque enim et ut dicta. Nostrum ducimus est iure minima totam
-              doloribus nisi ullam deserunt. Corporis aut officiis sit nihil est. Labore aut sapiente aperiam. Qui
-              voluptas qui vero ipsum ea voluptatem. Omnis et est. Voluptatem officia voluptatem adipisci et iusto
-              provident doloremque consequatur. Quia et porro est. Et qui corrupti laudantium ipsa. Eum quasi saepe
-              aperiam qui delectus quaerat in. Vitae mollitia ipsa quam. Ipsa aut qui numquam eum iste est dolorum. Rem
-              voluptas ut sit ut. </p>
-
+            <h3>Course Objective</h3>
+              <span id="course_objective"></span>
 
           </div>
           <div class="col-lg-4">
-            <div class="course-title d-flex justify-content-between align-items-center">
-              <h4>Weekends Blockchain Training Course for Beginners New York City</h4>
+            <div class="course-title d-flex justify-content-between align-items-center" id="course_title">
+
             </div>
             <div class="course-info d-flex justify-content-between align-items-center">
               <h5>Course Fee</h5>
@@ -47,20 +35,26 @@
             </div>
             <div class="course-info d-flex justify-content-between align-items-center">
               <h5>Date</h5>
-              <p>Sat, October 2, 2021</p>
+                <span id="course_start_date"></span>
+
             </div>
+              <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Till</h5>
+               <span id="course_end_date"></span>
+
+            </div>
+
             <div class="course-location">
-              <h5>Location</h5>
-              <p>UpSkill Institute Skill Sharp Co New York City, NY 10036 United States.</p>
-              <a href="#">View Map</a>
-              <div class="location-map">
-                <img src="{% static 'img/course-1.jpg' %}" class="img-fluid" alt="">
-              </div>
+              <span id="course-location"></span>
+                <span class="location_span"></span>
+
+                <div id='map'></div>
             </div>
           </div>
         </div>
       </div>
-    </section><!-- End Cource Details Section -->
+    </section>
+      <!-- End Cource Details Section -->
     <!-- ======= Cource Details Tabs Section ======= -->
     <section id="cource-details-tabs" class="cource-details-tabs">
       <div class="container" data-aos="fade-up">
@@ -97,12 +91,8 @@
                 aria-labelledby="v-pills-home-tab">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Architecto ut aperiam autem id</h3>
-                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer
-                      a videna mareta paulona marka</p>
-                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa
-                      odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni
-                      nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                    <h3>Who can take the course ?</h3>
+                    <span id="course_eligibility"></span>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static 'img/course-details-tab-1.png' %}" alt="" class="img-fluid">
@@ -112,12 +102,8 @@
               <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Et blanditiis nemo veritatis excepturi</h3>
-                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer
-                      a videna mareta paulona marka</p>
-                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt
-                      est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque
-                      beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                    <h3>Course Outline</h3>
+                   <span id="course_outline"></span>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
                     <img src="{% static 'img/course-details-tab-2.png' %}" alt="" class="img-fluid">
@@ -226,49 +212,50 @@
       <div class="container">
         <div class="section-title">
           <h2>Hyper Link. </h2>
-          <p>Lorem Ipsum</p>
+          <p>Social Platform Links</p>
         </div>
         <div class="row">
           <div class="col-md-4 col-sm-6">
             <div class="hyper_link_item">
               <span>1</span>
-              <a href="#">LinkedIn</a>
+                <a id="professionals_linkedIn" href="" target="_blank">Blockchain Professionals in Seattle on LinkedIn</a>
             </div>
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="hyper_link_item">
               <span>2</span>
-              <a href="#">LinkedInLinkedInLinkedInLinkedInLinkedIn LinkedInLinkedIn LinkedIn</a>
+                <a id="companies_linkedIn" href="" target="_blank">Blockchain Companies in Seattle on LinkedIn</a>
+
             </div>
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="hyper_link_item">
               <span>3</span>
-              <a href="#">LinkedIn</a>
+                <a id="jobs" href="" target="_blank">Blockchain Jobs in Seattle</a>
             </div>
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="hyper_link_item">
               <span>4</span>
-              <a href="#">LinkedIn</a>
+                <a id="LinkedIn_group_called" href="" target="_blank">Join LinkedIn group called Blockchain in Seattle</a>
             </div>
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="hyper_link_item">
               <span>5</span>
-              <a href="#">LinkedIn</a>
+             <a id="Facebook_group_called" href="" target="_blank">Join Facebook group called Blockchain in Seattle</a>
             </div>
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="hyper_link_item">
               <span>6</span>
-              <a href="#">LinkedIn</a>
+                <a id="Meetup_called" href="" target="_blank">Join Meetup called Blockchain Meetup in Seattle</a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- cource provider companys -->
+
     <section id="cource-provider" class="cource-provider-comp">
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="section-title">
@@ -406,7 +393,8 @@
         </div>
 
       </div>
-    </section><!-- End Counts Section -->
+    </section>
+      <!-- End Counts Section -->
     <section id="testimonials" class="testimonials">
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="section-title">
@@ -462,7 +450,8 @@
                   </p>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
+              <!-- End testimonial item -->
             <div class="swiper-slide" data-swiper-slide-index="1" role="group" aria-label="4 / 9"
               style="width: 548px; margin-right: 20px;">
               <div class="testimonial-wrap">
@@ -479,7 +468,8 @@
                   </p>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
+              <!-- End testimonial item -->
             <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2" role="group" aria-label="5 / 9"
               style="width: 548px; margin-right: 20px;">
               <div class="testimonial-wrap">
@@ -494,7 +484,8 @@
                   </p>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
+              <!-- End testimonial item -->
             <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="3" role="group" aria-label="6 / 9"
               style="width: 548px; margin-right: 20px;">
               <div class="testimonial-wrap">
@@ -510,7 +501,8 @@
                   </p>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
+              <!-- End testimonial item -->
             <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="4" role="group" aria-label="7 / 9"
               style="width: 548px; margin-right: 20px;">
               <div class="testimonial-wrap">
@@ -526,7 +518,8 @@
                   </p>
                 </div>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
+              <!-- End testimonial item -->
             <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" role="group" aria-label="8 / 9"
               style="width: 548px; margin-right: 20px;">
               <div class="testimonial-wrap">
@@ -571,6 +564,115 @@
       </div>
     </section>
     <!-- End Cource Details Tabs Section -->
-  </main><!-- End #main -->
+  </main>
+    <!-- End #main -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
 
+
+<script>
+     $(document).ready(function (){
+        if ("geolocation" in navigator){
+            //check geolocation available
+		navigator.geolocation.getCurrentPosition(function(position){
+
+        var latitude = position.coords.latitude
+        var longitude = position.coords.longitude
+
+          mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2ZWxvcG1lbnQwMjYxIiwiYSI6ImNrdGpvZGVxZDFkczQyb3A4ZzZkMTA5dmcifQ.hOxbLiqP0JgqpL7cbqU6SA';
+          const map = new mapboxgl.Map({
+          container: 'map', // Container ID
+          style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
+          center: [longitude, latitude], // Starting position [lng, lat]
+          zoom: 10, // Starting zoom level
+          });
+
+        $.ajax({
+        type: "POST",
+        url: "{% url 'ajax_filter' %}",
+        data: {
+            latitude : latitude,
+            longitude : longitude,
+        },
+        dataType: "json",
+        success:function(res){
+            var data = JSON.parse(res.data)
+            var fields = data[0].fields
+
+            $("#course_title").append(`
+            <h4>${fields['course_title']}</h4>
+            `)
+            $("#course_start_date").append(`
+                <p>${fields['course_start_date']}</p>
+            `)
+            $('#course_end_date').append(`
+                <p>${fields['course_end_date']}</p>
+            `)
+            $('#course_image').append(`
+                <img src="/media/${fields['course_image']}" class="img-fluid" alt="">
+            `)
+            $("#Course_Description").append(`
+                <p>${fields['course_description']}</p>
+            `)
+            $("#course_objective").append(`
+                <p>${fields['course_objective']}</p>
+            `)
+            $("#course_eligibility").append(`
+                <p>${fields['course_eligibility']}</p>
+            `)
+            $("#course_outline").append(`
+                <p>${fields['course_outline']}</p>
+            `)
+
+            var professionals_linkedIn = document.getElementById('professionals_linkedIn');
+            professionals_linkedIn.href = fields['professionals_linkedIn']
+
+            var companies_linkedIn = document.getElementById('companies_linkedIn');
+            companies_linkedIn.href = fields['companies_linkedIn']
+
+             var jobs = document.getElementById('jobs');
+            jobs.href = fields['jobs']
+
+             var LinkedIn_group_called = document.getElementById('LinkedIn_group_called');
+            LinkedIn_group_called.href = fields['LinkedIn_group_called']
+
+            var Facebook_group_called = document.getElementById('Facebook_group_called');
+            Facebook_group_called.href = fields['Facebook_group_called']
+
+            var Meetup_called = document.getElementById('Meetup_called');
+            Meetup_called.href = fields['Meetup_called']
+
+            $("#course-location").append(`
+                <p>${res.first_index}</p>
+            `)
+
+
+
+        },
+    });
+
+			});
+	}else{
+		console.log("Browser doesn't support geolocation!");
+	}
+    })
+</script>
+
+<script>
+navigator.permissions && navigator.permissions.query({name: 'geolocation'})
+    .then(function(PermissionStatus) {
+        if (PermissionStatus.state == 'granted') {
+            // granted
+
+        } else if (PermissionStatus.state == 'prompt') {
+              // prompt - not yet grated or denied
+
+        } else {
+             //denied
+
+        }
+    })
+</script>
 {% endblock content %}
+
