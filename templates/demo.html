@@ -1,0 +1,25 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<div class="subject">  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $(".subject").append(`
+            <p>Hello, I will disappear in 2 seconds!</p>
+        `)
+    setTimeout(function() {
+        $(".subject").fadeOut(1500);
+    }, 2000);
+        $(".subject").show();
+        setTimeout(function() {
+            $(".subject").fadeOut(1500);
+        }, 2000);
+
+});
+</script>
+<script>
+
+    $(document).ready(function() {
+       swal("Congratulations!", "We will get back to you With Best Solution", "success");
+    })
+</script>

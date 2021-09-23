@@ -6,7 +6,7 @@ from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from django.template.loader import render_to_string
 from datetime import date
-
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -43,6 +43,20 @@ def course_detail(request):
             pass
     return render(
         request, "course-details.html")
+
+
+@csrf_exempt
+def comments(request):
+    if request.method == "POST":
+        email = request.POST.get('email')
+        comments = request.POST.get('comments')
+        from_email = 'development0261@gmail.com'
+        send_mail(f'Contact You from {email}',
+                  comments,
+                  email,  # FROM
+                  [from_email],  # TO
+                  fail_silently=False)
+        return JsonResponse({"data": "Unknown"})
 
 
 def demo(request):

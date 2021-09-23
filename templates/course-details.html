@@ -1,568 +1,707 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content  %}
-  <main id="main">
+{% block content %}
+    <main id="main">
 
-    <!-- ======= Cource Details Section ======= -->
-    <section id="course-details" class="course-details" style="margin-top: 30px;">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-8">
-              <span id="course_image"></span>
+        <!-- ======= Cource Details Section ======= -->
+        <section id="course-details" class="course-details" style="margin-top: 30px;">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <span id="course_image"></span>
 
-            <h3>Course Description</h3>
-              <span id="Course_Description"></span>
+                        <h3>Course Description</h3>
+                        <span id="Course_Description"></span>
 
-            <h3>Course Objective</h3>
-              <span id="course_objective"></span>
+                        <h3>Course Objective</h3>
+                        <span id="course_objective"></span>
 
-          </div>
-          <div class="col-lg-4">
-            <div class="course-title d-flex justify-content-between align-items-center" id="course_title">
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="course-title d-flex justify-content-between align-items-center" id="course_title">
 
-            </div>
-            <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Course Fee</h5>
-              <p>$165</p>
-            </div>
-            <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Available Seats</h5>
-              <p>30</p>
-            </div>
-            <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Schedule</h5>
-              <p>11.00 AM - 1.00 PM EDT</p>
-            </div>
-            <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Date</h5>
-                <span id="course_start_end_date"></span>
+                        </div>
+                        <div class="course-info d-flex justify-content-between align-items-center">
+                            <h5>Course Fee</h5>
+                            <p>$165</p>
+                        </div>
+                        <div class="course-info d-flex justify-content-between align-items-center">
+                            <h5>Available Seats</h5>
+                            <p>30</p>
+                        </div>
+                        <div class="course-info d-flex justify-content-between align-items-center">
+                            <h5>Schedule</h5>
+                            <p>11.00 AM - 1.00 PM EDT</p>
+                        </div>
+                        <div class="course-info d-flex justify-content-between align-items-center">
+                            <h5>Date</h5>
+                            <span id="course_start_end_date"></span>
 
-            </div>
-              <span id="status">
+                        </div>
+                        <span id="status">
 
               </span>
 
-            <div class="course-location">
-              <span id="course-location"></span>
-                <span class="location_span"></span>
+                        <div class="course-location">
+                            <span id="course-location"></span>
+                            <span class="location_span"></span>
 
-                <div id='map'></div>
+                            <div id='map'></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-      <!-- End Cource Details Section -->
-    <!-- ======= Cource Details Tabs Section ======= -->
-    <section id="cource-details-tabs" class="cource-details-tabs">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-3">
-            <ul class="nav nav-tabs flex-column">
-              <li class="nav-item">
-                <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
-                  type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Who can take the course ?</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
-                  type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Course outline
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages"
-                  type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Features and Benefits
-                </a>
-              </li>
-
-            </ul>
-          </div>
-          <div class="col-lg-9 mt-4 mt-lg-0">
-            <div class="tab-content">
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                aria-labelledby="v-pills-home-tab">
+        </section>
+        <!-- End Cource Details Section -->
+        <!-- ======= Cource Details Tabs Section ======= -->
+        <section id="cource-details-tabs" class="cource-details-tabs">
+            <div class="container" data-aos="fade-up">
                 <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Who can take the course ?</h3>
-                    <span id="course_eligibility"></span>
-                  </div>
-                  <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static 'img/course-details-tab-1.png' %}" alt="" class="img-fluid">
-                  </div>
+                    <div class="col-lg-3">
+                        <ul class="nav nav-tabs flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                                   data-bs-target="#v-pills-home"
+                                   type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Who can
+                                    take the course ?</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                   data-bs-target="#v-pills-profile"
+                                   type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Course
+                                    outline
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                                   data-bs-target="#v-pills-messages"
+                                   type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Features
+                                    and Benefits
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-lg-9 mt-4 mt-lg-0">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                                 aria-labelledby="v-pills-home-tab">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Who can take the course ?</h3>
+                                        <span id="course_eligibility"></span>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{% static 'img/course-details-tab-1.png' %}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                                 aria-labelledby="v-pills-profile-tab">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Course Outline</h3>
+                                        <span id="course_outline"></span>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{% static 'img/course-details-tab-2.png' %}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                                 aria-labelledby="v-pills-messages-tab">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
+                                        <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non
+                                            enim fuga. Qui natus
+                                            non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
+                                        <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis
+                                            quisquam. Neque
+                                            necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed
+                                            laboriosam a iste odio. Earum
+                                            odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{% static 'img/course-details-tab-3.png' %}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            </div>
+        </section>
+        <!-- Cource Details -->
+        <!-- acordian -->
+        <section id="cource-acordian">
+            <div class="container">
                 <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Course Outline</h3>
-                   <span id="course_outline"></span>
-                  </div>
-                  <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static 'img/course-details-tab-2.png' %}" alt="" class="img-fluid">
-                  </div>
+                    <div class="col-lg-12">
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                            aria-controls="panelsStayOpen-collapseOne"> What is Lorem Ipsum?
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                     aria-labelledby="panelsStayOpen-headingOne">
+                                    <div class="accordion-body">
+                                        <strong>This is the first item's accordion body.</strong> It is shown by
+                                        default, until the collapse
+                                        plugin adds the appropriate classes that we use to style each element. These
+                                        classes control the
+                                        overall appearance, as well as the showing and hiding via CSS transitions. You
+                                        can modify any of
+                                        this with custom CSS or overriding our default variables. It's also worth noting
+                                        that just about any
+                                        HTML can go within the <code>.accordion-body</code>, though the transition does
+                                        limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                            aria-controls="panelsStayOpen-collapseTwo"> Why do we use it?
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                                     aria-labelledby="panelsStayOpen-headingTwo">
+                                    <div class="accordion-body">
+                                        <strong>This is the second item's accordion body.</strong> It is hidden by
+                                        default, until the
+                                        collapse plugin adds the appropriate classes that we use to style each element.
+                                        These classes
+                                        control the overall appearance, as well as the showing and hiding via CSS
+                                        transitions. You can
+                                        modify any of this with custom CSS or overriding our default variables. It's
+                                        also worth noting that
+                                        just about any HTML can go within the <code>.accordion-body</code>, though the
+                                        transition does limit
+                                        overflow.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            </div>
+        </section>
+
+        {#      Contact-details #}
+        <section id="user-contact">
+            <div class="container">
                 <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
-                    <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus
-                      non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
-                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque
-                      necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum
-                      odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
-                  </div>
-                  <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="{% static 'img/course-details-tab-3.png' %}" alt="" class="img-fluid">
-                  </div>
+                    <div class="col-lg-12">
+                        <div class="cource-contact">
+                            <h1>Wanna Talk To Us?</h1>
+                            <p>It is a long established fact that a reader will be distracted by the readable content of
+                                <br>
+                                a page when looking at its layout. The point of using Lorem.</p>
+                            <div class="contact-model">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn contact-button" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
+                                    CONTACT US
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form>
+
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">CONTACT US</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="contact-model-input">
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Email
+                                                                address</label>
+                                                            <input type="email" class="form-control"
+                                                                   id="exampleInputEmail1" required name="email" aria-describedby="emailHelp">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="form-floating">
+                                                                <textarea class="form-control" name="comments"
+                                                                          placeholder="Leave a comment here"
+                                                                          id="floatingTextarea" required></textarea>
+                                                                <label for="floatingTextarea">Comments</label>
+                                                            </div>
+                                                        </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn close-model" data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="button" class="btn save-model">Save</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Cource Details -->
-    <!-- acordian -->
-    <section id="cource-acordian">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="accordion" id="accordionPanelsStayOpenExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapseOne"> What is Lorem Ipsum? </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                  aria-labelledby="panelsStayOpen-headingOne">
-                  <div class="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
-                    plugin adds the appropriate classes that we use to style each element. These classes control the
-                    overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of
-                    this with custom CSS or overriding our default variables. It's also worth noting that just about any
-                    HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                  </div>
+        </section>
+
+
+        <section class="hyper_link_wrp">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Hyper Link. </h2>
+                    <p>Social Platform Links</p>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                    aria-controls="panelsStayOpen-collapseTwo"> Why do we use it? </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-                  aria-labelledby="panelsStayOpen-headingTwo">
-                  <div class="accordion-body">
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                    overflow.
-                  </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="hyper_link_item">
+                            <span>1</span>
+                            <a id="professionals_linkedIn" href="" target="_blank">Blockchain Professionals in Seattle
+                                on LinkedIn</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="hyper_link_item">
+                            <span>2</span>
+                            <a id="companies_linkedIn" href="" target="_blank">Blockchain Companies in Seattle on
+                                LinkedIn</a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="hyper_link_item">
+                            <span>3</span>
+                            <a id="jobs" href="" target="_blank">Blockchain Jobs in Seattle</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="hyper_link_item">
+                            <span>4</span>
+                            <a id="LinkedIn_group_called" href="" target="_blank">Join LinkedIn group called Blockchain
+                                in Seattle</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="hyper_link_item">
+                            <span>5</span>
+                            <a id="Facebook_group_called" href="" target="_blank">Join Facebook group called Blockchain
+                                in Seattle</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="hyper_link_item">
+                            <span>6</span>
+                            <a id="Meetup_called" href="" target="_blank">Join Meetup called Blockchain Meetup in
+                                Seattle</a>
+                        </div>
+                    </div>
                 </div>
-              </div>
+            </div>
+        </section>
+
+        <section id="cource-provider" class="cource-provider-comp">
+            <div class="container aos-init aos-animate" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Companies with Blockchain courses. </h2>
+                    <p>Companies whose employees have taken blockchain courses</p>
+                </div>
+                <div class="cource-provideer-card-wrp owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="company-cards">
+                            <div class="card">
+                                <div class="card_img">
+                                    <img src="{% static 'img/infolab.jpg' %}" class="card-img-top img-fluid" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Info Lab</h5>
+                                    <div class="company-address">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <h6>ADDRESS</h6>
+                                        <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
+                                        <h6>ADDRESS IN SEATTLE</h6>
+                                        <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="company-cards">
+                            <div class="card">
+                                <div class="card_img">
+                                    <img src="{% static 'img/infolab.jpg' %}" class="card-img-top img-fluid" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Info Lab</h5>
+                                    <div class="company-address">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <h6>ADDRESS</h6>
+                                        <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
+                                        <h6>ADDRESS IN SEATTLE</h6>
+                                        <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="company-cards">
+                            <div class="card">
+                                <div class="card_img">
+                                    <img src="{% static 'img/infolab.jpg' %}" class="card-img-top img-fluid" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Info Lab</h5>
+                                    <div class="company-address">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <h6>ADDRESS</h6>
+                                        <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
+                                        <h6>ADDRESS IN SEATTLE</h6>
+                                        <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="company-cards">
+                            <div class="card">
+                                <div class="card_img">
+                                    <img src="{% static 'img/infolab.jpg' %}" class="card-img-top img-fluid" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Info Lab</h5>
+                                    <div class="company-address">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <h6>ADDRESS</h6>
+                                        <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
+                                        <h6>ADDRESS IN SEATTLE</h6>
+                                        <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="company-cards">
+                            <div class="card">
+                                <div class="card_img">
+                                    <img src="{% static 'img/infolab.jpg' %}" class="card-img-top img-fluid" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Info Lab</h5>
+                                    <div class="company-address">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <h6>ADDRESS</h6>
+                                        <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
+                                        <h6>ADDRESS IN SEATTLE</h6>
+                                        <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts section-bg">
+            <div class="container">
+
+                <div class="row counters">
+
+
+                    <div class="col-lg-4 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
+                              class="purecounter"></span>
+                        <h3>Courses</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+
+                    <div class="col-lg-4 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
+                              class="purecounter"></span>
+                        <h3>Events</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+
+                    <div class="col-lg-4 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+                              class="purecounter"></span>
+                        <h3>Trainers</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+
+                </div>
 
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="hyper_link_wrp">
-      <div class="container">
-        <div class="section-title">
-          <h2>Hyper Link. </h2>
-          <p>Social Platform Links</p>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-6">
-            <div class="hyper_link_item">
-              <span>1</span>
-                <a id="professionals_linkedIn" href="" target="_blank">Blockchain Professionals in Seattle on LinkedIn</a>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="hyper_link_item">
-              <span>2</span>
-                <a id="companies_linkedIn" href="" target="_blank">Blockchain Companies in Seattle on LinkedIn</a>
-
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="hyper_link_item">
-              <span>3</span>
-                <a id="jobs" href="" target="_blank">Blockchain Jobs in Seattle</a>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="hyper_link_item">
-              <span>4</span>
-                <a id="LinkedIn_group_called" href="" target="_blank">Join LinkedIn group called Blockchain in Seattle</a>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="hyper_link_item">
-              <span>5</span>
-             <a id="Facebook_group_called" href="" target="_blank">Join Facebook group called Blockchain in Seattle</a>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="hyper_link_item">
-              <span>6</span>
-                <a id="Meetup_called" href="" target="_blank">Join Meetup called Blockchain Meetup in Seattle</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="cource-provider" class="cource-provider-comp">
-      <div class="container aos-init aos-animate" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Companies with Blockchain courses. </h2>
-          <p>Companies whose employees have taken blockchain courses</p>
-        </div>
-        <div class="cource-provideer-card-wrp owl-carousel owl-theme">
-          <div class="item">
-            <div class="company-cards">
-              <div class="card">
-                <div class="card_img">
-                  <img src="{% static 'img/infolab.jpg' %}" class="card-img-top img-fluid" alt="...">
+        </section>
+        <!-- End Counts Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container aos-init aos-animate" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Testimonials</h2>
+                    <p>Student Reviews</p>
                 </div>
-                <div class="card-body">
-                  <h5 class="card-title">Info Lab</h5>
-                  <div class="company-address">
-                    <i class="bi bi-geo-alt"></i>
-                    <h6>ADDRESS</h6>
-                    <p class="card-text">	3569 Dovetail Estates, Bennington,Oklahoma</p>
-                    <h6>ADDRESS IN SEATTLE</h6>
-                    <p class="card-text">	3569 Dovetail Estates, Bennington,Oklahoma</p>
-                  </div>
+                <div
+                        class="testimonials-slider swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events aos-init aos-animate"
+                        data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper" id="swiper-wrapper-bff6a96e0b4aba9f" aria-live="off"
+                         style="transform: translate3d(-2840px, 0px, 0px); transition-duration: 0ms;">
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                             data-swiper-slide-index="3"
+                             role="group" aria-label="1 / 9" style="width: 548px; margin-right: 20px;">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img src="{% static 'img/testimonials/testimonials-4.jpg' %}"
+                                         class="testimonial-img" alt="">
+                                    <h3>Matt Brandon</h3>
+                                    <h4>Freelancer</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> "This Blockchain training
+                                        was of great quality
+                                        and great value for money. " - Tom, Finance Professional, New York City ★★★★★ <i
+                                            class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                             data-swiper-slide-index="4"
+                             role="group" aria-label="2 / 9" style="width: 548px; margin-right: 20px;">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img src="{% static 'img/testimonials/testimonials-5.jpg' %}"
+                                         class="testimonial-img" alt="">
+                                    <h3>John Larson</h3>
+                                    <h4>Entrepreneur</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> "I got so much knowledge
+                                        in Blockchain out of
+                                        this training. I am grateful." - Sonia, Student, New York City ★★★★★ <i
+                                            class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="0" role="group" aria-label="3 / 9"
+                             style="width: 548px; margin-right: 20px;">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img src="{% static 'img/testimonials/testimonials-1.jpg' %}"
+                                         class="testimonial-img" alt="">
+                                    <h3>Saul Goodman</h3>
+                                    <h4>Ceo &amp; Founder</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> "The training did meet and
+                                        exceed my
+                                        expectations. There were training materials and hands-on exercises"- Cindy, IT
+                                        Manager, New York
+                                        City★★★★★ <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End testimonial item -->
+                        <div class="swiper-slide" data-swiper-slide-index="1" role="group" aria-label="4 / 9"
+                             style="width: 548px; margin-right: 20px;">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img src="{% static 'img/testimonials/testimonials-2.jpg' %}"
+                                         class="testimonial-img" alt="">
+                                    <h3>Sara Wilsson</h3>
+                                    <h4>Designer</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> " This course was an eye
+                                        opener for me. I
+                                        learned a lot about blockchain technology, bitcoin, smart contracts and more. I
+                                        learned from the
+                                        hands-on exercises, lively discussions amongst the students. The instructor was
+                                        pleasant with
+                                        excellent follow through. It was effortless learning at its best."- Cecil, Tech
+                                        Professional, New
+                                        York City. ★★★★★ <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End testimonial item -->
+                        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2" role="group"
+                             aria-label="5 / 9"
+                             style="width: 548px; margin-right: 20px;">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img src="{% static 'img/testimonials/testimonials-3.jpg' %}"
+                                         class="testimonial-img" alt="">
+                                    <h3>Jena Karlis</h3>
+                                    <h4>Store Owner</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> Enim nisi quem export duis
+                                        labore cillum quae
+                                        magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis
+                                        noster aute amet
+                                        eram fore quis sint minim. <i
+                                            class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End testimonial item -->
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="3" role="group"
+                             aria-label="6 / 9"
+                             style="width: 548px; margin-right: 20px;">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img src="{% static 'img/testimonials/testimonials-4.jpg' %}"
+                                         class="testimonial-img" alt="">
+                                    <h3>Matt Brandon</h3>
+                                    <h4>Freelancer</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> Fugiat enim eram quae
+                                        cillum dolore dolor amet
+                                        nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam
+                                        ipsum anim magna
+                                        sunt elit fore quem dolore labore illum veniam. <i
+                                            class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End testimonial item -->
+                        <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="4" role="group"
+                             aria-label="7 / 9"
+                             style="width: 548px; margin-right: 20px;">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img src="{% static 'img/testimonials/testimonials-5.jpg' %}"
+                                         class="testimonial-img" alt="">
+                                    <h3>John Larson</h3>
+                                    <h4>Entrepreneur</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> Quis quorum aliqua sint
+                                        quem legam fore sunt
+                                        eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa
+                                        nulla illum cillum
+                                        fugiat legam esse veniam culpa fore nisi cillum quid. <i
+                                            class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End testimonial item -->
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" role="group"
+                             aria-label="8 / 9"
+                             style="width: 548px; margin-right: 20px;">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img src="{% static 'img/testimonials/testimonials-1.jpg' %}"
+                                         class="testimonial-img" alt="">
+                                    <h3>Saul Goodman</h3>
+                                    <h4>Ceo &amp; Founder</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> Proin iaculis purus
+                                        consequat sem cure digni
+                                        ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget
+                                        id, aliquam eget nibh
+                                        et. Maecen aliquam, risus at semper. <i
+                                            class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" role="group"
+                             aria-label="9 / 9"
+                             style="width: 548px; margin-right: 20px;">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <img src="{% static 'img/testimonials/testimonials-2.jpg' %}"
+                                         class="testimonial-img" alt="">
+                                    <h3>Sara Wilsson</h3>
+                                    <h4>Designer</h4>
+                                    <p>
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i> Export tempor illum tamen
+                                        malis malis eram
+                                        quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram
+                                        velit sunt aliqua
+                                        noster fugiat irure amet legam anim culpa. <i
+                                            class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span
+                            class="swiper-pagination-bullet" tabindex="0" role="button"
+                            aria-label="Go to slide 1"></span><span
+                            class="swiper-pagination-bullet" tabindex="0" role="button"
+                            aria-label="Go to slide 2"></span><span
+                            class="swiper-pagination-bullet" tabindex="0" role="button"
+                            aria-label="Go to slide 3"></span><span
+                            class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
+                            aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0"
+                                                                    role="button"
+                                                                    aria-label="Go to slide 5"></span>
+                    </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="item">
-            <div class="company-cards">
-              <div class="card">
-                <div class="card_img">
-                  <img src="{% static 'img/infolab.jpg' %}" class="card-img-top img-fluid" alt="...">
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Info Lab</h5>
-                  <div class="company-address">
-                    <i class="bi bi-geo-alt"></i>
-                    <h6>ADDRESS</h6>
-                    <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
-                    <h6>ADDRESS IN SEATTLE</h6>
-                    <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="company-cards">
-              <div class="card">
-                <div class="card_img">
-                  <img src="{% static 'img/infolab.jpg' %}" class="card-img-top img-fluid" alt="...">
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Info Lab</h5>
-                  <div class="company-address">
-                    <i class="bi bi-geo-alt"></i>
-                    <h6>ADDRESS</h6>
-                    <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
-                    <h6>ADDRESS IN SEATTLE</h6>
-                    <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="company-cards">
-              <div class="card">
-                <div class="card_img">
-                  <img src="{% static 'img/infolab.jpg' %}" class="card-img-top img-fluid" alt="...">
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Info Lab</h5>
-                  <div class="company-address">
-                    <i class="bi bi-geo-alt"></i>
-                    <h6>ADDRESS</h6>
-                    <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
-                    <h6>ADDRESS IN SEATTLE</h6>
-                    <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="company-cards">
-              <div class="card">
-                <div class="card_img">
-                  <img src="{% static 'img/infolab.jpg' %}" class="card-img-top img-fluid" alt="...">
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Info Lab</h5>
-                  <div class="company-address">
-                    <i class="bi bi-geo-alt"></i>
-                    <h6>ADDRESS</h6>
-                    <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
-                    <h6>ADDRESS IN SEATTLE</h6>
-                    <p class="card-text"> 3569 Dovetail Estates, Bennington,Oklahoma</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts section-bg">
-      <div class="container">
-
-        <div class="row counters">
-
-          
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
-            <h3>Courses</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1" class="purecounter"></span>
-            <h3>Events</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-            <h3>Trainers</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-      <!-- End Counts Section -->
-    <section id="testimonials" class="testimonials">
-      <div class="container aos-init aos-animate" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>Student Reviews</p>
-        </div>
-        <div
-          class="testimonials-slider swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events aos-init aos-animate"
-          data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper" id="swiper-wrapper-bff6a96e0b4aba9f" aria-live="off"
-            style="transform: translate3d(-2840px, 0px, 0px); transition-duration: 0ms;">
-            <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="3"
-              role="group" aria-label="1 / 9" style="width: 548px; margin-right: 20px;">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> "This Blockchain training was of great quality
-                    and great value for money. " - Tom, Finance Professional, New York City ★★★★★ <i
-                      class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="4"
-              role="group" aria-label="2 / 9" style="width: 548px; margin-right: 20px;">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> "I got so much knowledge in Blockchain out of
-                    this training. I am grateful." - Sonia, Student, New York City ★★★★★ <i
-                      class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide" data-swiper-slide-index="0" role="group" aria-label="3 / 9"
-              style="width: 548px; margin-right: 20px;">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> "The training did meet and exceed my
-                    expectations. There were training materials and hands-on exercises"- Cindy, IT Manager, New York
-                    City★★★★★ <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-              <!-- End testimonial item -->
-            <div class="swiper-slide" data-swiper-slide-index="1" role="group" aria-label="4 / 9"
-              style="width: 548px; margin-right: 20px;">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> " This course was an eye opener for me. I
-                    learned a lot about blockchain technology, bitcoin, smart contracts and more. I learned from the
-                    hands-on exercises, lively discussions amongst the students. The instructor was pleasant with
-                    excellent follow through. It was effortless learning at its best."- Cecil, Tech Professional, New
-                    York City. ★★★★★ <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-              <!-- End testimonial item -->
-            <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="2" role="group" aria-label="5 / 9"
-              style="width: 548px; margin-right: 20px;">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Enim nisi quem export duis labore cillum quae
-                    magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet
-                    eram fore quis sint minim. <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-              <!-- End testimonial item -->
-            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="3" role="group" aria-label="6 / 9"
-              style="width: 548px; margin-right: 20px;">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Fugiat enim eram quae cillum dolore dolor amet
-                    nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna
-                    sunt elit fore quem dolore labore illum veniam. <i
-                      class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-              <!-- End testimonial item -->
-            <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="4" role="group" aria-label="7 / 9"
-              style="width: 548px; margin-right: 20px;">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Quis quorum aliqua sint quem legam fore sunt
-                    eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum
-                    fugiat legam esse veniam culpa fore nisi cillum quid. <i
-                      class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-              <!-- End testimonial item -->
-            <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" role="group" aria-label="8 / 9"
-              style="width: 548px; margin-right: 20px;">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Proin iaculis purus consequat sem cure digni
-                    ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh
-                    et. Maecen aliquam, risus at semper. <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" role="group" aria-label="9 / 9"
-              style="width: 548px; margin-right: 20px;">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static 'img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Export tempor illum tamen malis malis eram
-                    quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua
-                    noster fugiat irure amet legam anim culpa. <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span
-              class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span
-              class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span
-              class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span
-              class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
-              aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button"
-              aria-label="Go to slide 5"></span>
-            </div>
-          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-        </div>
-      </div>
-    </section>
-    <!-- End Cource Details Tabs Section -->
-  </main>
+        </section>
+        <!-- End Cource Details Tabs Section -->
+    </main>
     <!-- End #main -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet'/>
 
 
-<script>
-     $(document).ready(function (){
-        if ("geolocation" in navigator){
-            //check geolocation available
-		navigator.geolocation.getCurrentPosition(function(position){
+    <script>
+        $(document).ready(function () {
+            if ("geolocation" in navigator) {
+                //check geolocation available
+                navigator.geolocation.getCurrentPosition(function (position) {
 
-        var latitude = position.coords.latitude
-        var longitude = position.coords.longitude
+                    var latitude = position.coords.latitude
+                    var longitude = position.coords.longitude
 
-          mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2ZWxvcG1lbnQwMjYxIiwiYSI6ImNrdGpvZGVxZDFkczQyb3A4ZzZkMTA5dmcifQ.hOxbLiqP0JgqpL7cbqU6SA';
-          const map = new mapboxgl.Map({
-          container: 'map', // Container ID
-          style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
-          center: [longitude, latitude], // Starting position [lng, lat]
-          zoom: 10, // Starting zoom level
-          });
+                    mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2ZWxvcG1lbnQwMjYxIiwiYSI6ImNrdGpvZGVxZDFkczQyb3A4ZzZkMTA5dmcifQ.hOxbLiqP0JgqpL7cbqU6SA';
+                    const map = new mapboxgl.Map({
+                        container: 'map', // Container ID
+                        style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
+                        center: [longitude, latitude], // Starting position [lng, lat]
+                        zoom: 10, // Starting zoom level
+                    });
 
-        $.ajax({
-        type: "POST",
-        url: "{% url 'ajax_filter' %}",
-        data: {
-            latitude : latitude,
-            longitude : longitude,
-        },
-        dataType: "json",
-        success:function(res){
-            var data = JSON.parse(res.data)
-            var fields = data[0].fields
-            if (fields.status === false){
-                $("#status").append(`
+                    $.ajax({
+                        type: "POST",
+                        url: "{% url 'ajax_filter' %}",
+                        data: {
+                            latitude: latitude,
+                            longitude: longitude,
+                        },
+                        dataType: "json",
+                        success: function (res) {
+                            var data = JSON.parse(res.data)
+                            var fields = data[0].fields
+                            if (fields.status === false) {
+                                $("#status").append(`
                       <div class="course-info d-flex justify-content-between align-items-center">
                          <div class="bouncing-text">
                           <div class="c">C&nbsp;</div>
@@ -574,82 +713,120 @@
                         </div>
                       </div>
                 `)
-                var date = document.getElementById('course_start_end_date');
-                date.style = 'text-decoration: line-through';
-            }
+                                var date = document.getElementById('course_start_end_date');
+                                date.style = 'text-decoration: line-through';
+                            }
 
 
-            $("#course_title").append(`
+                            $("#course_title").append(`
             <h4>${fields['course_title']}</h4>
             `)
-            $("#course_start_end_date").append(`
+                            $("#course_start_end_date").append(`
                 <p>${fields['course_start_date']} / ${fields['course_end_date']}</p>
             `)
 
-            $('#course_image').append(`
+                            $('#course_image').append(`
                 <img src="/media/${fields['course_image']}" class="img-fluid" alt="">
             `)
-            $("#Course_Description").append(`
+                            $("#Course_Description").append(`
                 <p>${fields['course_description']}</p>
             `)
-            $("#course_objective").append(`
+                            $("#course_objective").append(`
                 <p>${fields['course_objective']}</p>
             `)
-            $("#course_eligibility").append(`
+                            $("#course_eligibility").append(`
                 <p>${fields['course_eligibility']}</p>
             `)
-            $("#course_outline").append(`
+                            $("#course_outline").append(`
                 <p>${fields['course_outline']}</p>
             `)
 
-            var professionals_linkedIn = document.getElementById('professionals_linkedIn');
-            professionals_linkedIn.href = fields['professionals_linkedIn']
+                            var professionals_linkedIn = document.getElementById('professionals_linkedIn');
+                            professionals_linkedIn.href = fields['professionals_linkedIn']
 
-            var companies_linkedIn = document.getElementById('companies_linkedIn');
-            companies_linkedIn.href = fields['companies_linkedIn']
+                            var companies_linkedIn = document.getElementById('companies_linkedIn');
+                            companies_linkedIn.href = fields['companies_linkedIn']
 
-             var jobs = document.getElementById('jobs');
-            jobs.href = fields['jobs']
+                            var jobs = document.getElementById('jobs');
+                            jobs.href = fields['jobs']
 
-             var LinkedIn_group_called = document.getElementById('LinkedIn_group_called');
-            LinkedIn_group_called.href = fields['LinkedIn_group_called']
+                            var LinkedIn_group_called = document.getElementById('LinkedIn_group_called');
+                            LinkedIn_group_called.href = fields['LinkedIn_group_called']
 
-            var Facebook_group_called = document.getElementById('Facebook_group_called');
-            Facebook_group_called.href = fields['Facebook_group_called']
+                            var Facebook_group_called = document.getElementById('Facebook_group_called');
+                            Facebook_group_called.href = fields['Facebook_group_called']
 
-            var Meetup_called = document.getElementById('Meetup_called');
-            Meetup_called.href = fields['Meetup_called']
+                            var Meetup_called = document.getElementById('Meetup_called');
+                            Meetup_called.href = fields['Meetup_called']
 
-            $("#course-location").append(`
+                            $("#course-location").append(`
                 <p>${res.first_index}</p>
             `)
 
 
+                        },
+                    });
 
-        },
-    });
+                });
+            } else {
+                console.log("Browser doesn't support geolocation!");
+            }
+        })
+    </script>
 
-			});
-	}else{
-		console.log("Browser doesn't support geolocation!");
-	}
-    })
-</script>
+    <script>
+        navigator.permissions && navigator.permissions.query({name: 'geolocation'})
+            .then(function (PermissionStatus) {
+                if (PermissionStatus.state == 'granted') {
+                    // granted
+
+                } else if (PermissionStatus.state == 'prompt') {
+                    // prompt - not yet grated or denied
+
+                } else {
+                    //denied
+
+                }
+            })
+    </script>
 
 <script>
-navigator.permissions && navigator.permissions.query({name: 'geolocation'})
-    .then(function(PermissionStatus) {
-        if (PermissionStatus.state == 'granted') {
-            // granted
+$( ".save-model" ).click(function() {
+  var email = $("#exampleInputEmail1").val()
+  var comments = $("#floatingTextarea").val()
+  var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if (email === "" || comments === "" || !regex.test(email)){
+      alert("Oops!!! Please Check Your Inputs")
+  }
+  else {
+       $.ajax({
+            type: "POST",
+            url: "{% url 'comments' %}",
+            data: {
+                email: email,
+                comments: comments,
+            },
+            dataType: "json",
+            beforeSend : function(){
+              $("body").addClass("disabledbutton");
+            },
+            success: function (res) {
+               $("body").removeClass("disabledbutton"); // Remove Blurry and Point display: None
+               $("#exampleInputEmail1").val(null)       // Remove Value from email
+               $("#floatingTextarea").val(null)         // Remove Value from Comments
+               window.scrollTo(0, 0);
 
-        } else if (PermissionStatus.state == 'prompt') {
-              // prompt - not yet grated or denied
+               swal("Congratulations!", "We will get back to you With Best Solution", "success");
+                setTimeout(function() {
+                    $(".swal-modal").fadeOut(1500);
+                    $(".swal-button ").click()
+                }, 1500);
 
-        } else {
-             //denied
-
-        }
-    })
+            },
+        });
+       $("#exampleModal").modal("hide");
+  }
+});
 </script>
 {% endblock content %}
 
