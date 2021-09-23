@@ -4,7 +4,6 @@ from django.views.decorators.csrf import csrf_exempt
 from geopy.geocoders import Nominatim
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
-from django.template.loader import render_to_string
 from datetime import date
 from django.core.mail import send_mail
 
@@ -30,7 +29,9 @@ def course_detail(request):
     ]
     for i in city_list:
         try:
-            data = Course.objects.get(course_city__city_name=i)
+            data = Course.objects.get(
+                course_city__city_name=i
+            )
             end_date = data.course_end_date
             today = date.today()
             if end_date < today:
@@ -41,22 +42,23 @@ def course_detail(request):
                 data.save()
         except:
             pass
-    return render(
-        request, "course-details.html")
+    return render(request, "course-details.html")
 
 
 @csrf_exempt
 def comments(request):
     if request.method == "POST":
-        email = request.POST.get('email')
-        comments = request.POST.get('comments')
-        from_email = 'development0261@gmail.com'
-        send_mail(f'Contact You from {email}',
-                  comments,
-                  email,  # FROM
-                  [from_email],  # TO
-                  fail_silently=False)
-        return JsonResponse({"data": "Unknown"})
+        email = request.POST.get("email")
+        comments = request.POST.get("comments")
+        from_email = "development0261@gmail.com"
+        send_mail(
+            f"Contact You from {email}",
+            comments,
+            email,  # FROM
+            [from_email],  # TO
+            fail_silently=False,
+        )
+        return JsonResponse({"data": "Success"})
 
 
 def demo(request):
