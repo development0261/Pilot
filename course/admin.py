@@ -1,3 +1,4 @@
+from import_export.admin import ImportExportModelAdmin
 from django.contrib import admin
 from .models import Course, City
 
@@ -13,5 +14,9 @@ class extra_course(admin.ModelAdmin):
     ]
 
 
+@admin.register(City)
+class PersonAdmin(ImportExportModelAdmin):
+    pass
+
+
 admin.site.register(Course, extra_course)
-admin.site.register(City)

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'course',
     'home',
     'tinymce',
+    'import_export',
 ]
 
 MIDDLEWARE = [

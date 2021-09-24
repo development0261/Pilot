@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Course, CHOICES_CITY
+from .models import Course
 from django.views.decorators.csrf import csrf_exempt
 from geopy.geocoders import Nominatim
 from django.http import HttpResponse, JsonResponse
@@ -106,7 +106,7 @@ def ajax_filter(request):
         print(second_add)
         print("**********")
         print("**********")
-        check = [i for i in city_list if i in first_index]
+        check = [i for i in city_list if i in list(first_index.split(','))]
         if check:
             data = Course.objects.get(
                 course_city__city_name__in=check

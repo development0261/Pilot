@@ -24,9 +24,9 @@ CHOICES_CITY = (
 
 class City(models.Model):
     city_name = models.CharField(
-        max_length=100,
-        choices=CHOICES_CITY,
-        default=CHOICES_CITY[0],
+        max_length=500,
+        null= True,
+        blank= True,
         verbose_name="City Name",
     )
 
