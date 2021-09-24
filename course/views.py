@@ -14,6 +14,7 @@ def course_detail(request):
     city_list = [
         "Surat",
         "Valsad",
+        "Kolkata",
         "Seattle",
         "Unknown",
         "New York City",
@@ -80,6 +81,7 @@ def ajax_filter(request):
         city_list = [
             "Surat",
             "Valsad",
+            "Kolkata",
             "Unknown",
             "New York City",
             "Miami",
