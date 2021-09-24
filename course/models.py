@@ -18,6 +18,7 @@ CHOICES_CITY = (
     ("Surat", "Surat"),
     ("Valsad", "Valsad"),
     ("Kolkata", "Kolkata"),
+    ("Ahmedabad", "Ahmedabad"),
 )
 
 

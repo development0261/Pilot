@@ -13,6 +13,7 @@ from django.core.mail import send_mail
 def course_detail(request):
     city_list = [
         "Surat",
+        "Ahmedabad",
         "Valsad",
         "Kolkata",
         "Seattle",
@@ -81,6 +82,7 @@ def ajax_filter(request):
         city_list = [
             "Surat",
             "Valsad",
+            "Ahmedabad",
             "Kolkata",
             "Unknown",
             "New York City",
