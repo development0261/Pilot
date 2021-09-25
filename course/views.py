@@ -108,6 +108,8 @@ def ajax_filter(request):
                         "Country_Code": "Country_Code"
                     })
 
+        print(city_name)
+        print(data_country)
         check = []
         print("*/***************")
         print(len(data_country[0]["Country_code"]))
