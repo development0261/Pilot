@@ -96,12 +96,15 @@ def ajax_filter(request):
         city_data = City.objects.all()
 
         for j in city_data:
-            if j.city_name in list(first_index.split(',')):
+            print("city_name",j.city_name)
+            print("location",[x.strip() for x in first_index.split(',')])
+            if j.city_name in [x.strip() for x in first_index.split(',')]:
                 try:
                     city_name.append({
                         "City_name": j.city_name,
                         "Country_Code": j.country_code
                     })
+                    break
                 except:
                     city_name.append({
                         "City_name": "City_name",
