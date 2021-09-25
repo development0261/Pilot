@@ -109,7 +109,11 @@ def ajax_filter(request):
                     })
 
         check = []
+        print("*/***************")
+        print(len(data_country[0]["Country_code"]))
+        print(len(city_name[0]["Country_Code"]))
         if data_country[0]["Country_code"] == city_name[0]["Country_Code"]:
+
             check.append({
                 "country_code": data_country[0]["Country_code"],
                 "st_date": data_country[0]["Starting_date"],
