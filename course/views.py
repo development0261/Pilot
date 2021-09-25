@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Course
+from .models import Course, Country, City
 from django.views.decorators.csrf import csrf_exempt
 from geopy.geocoders import Nominatim
 from django.http import HttpResponse, JsonResponse
@@ -7,40 +7,26 @@ from django.core import serializers
 from datetime import date
 from django.core.mail import send_mail
 
+
 # Create your views here.
 
 
 def course_detail(request):
-    city_list = [
-        "Surat",
-        "Ahmedabad",
-        "Valsad",
-        "Kolkata",
-        "Seattle",
-        "Unknown",
-        "New York City",
-        "Miami",
-        "Philadelphia",
-        "Houston",
-        "Atlanta",
-        "Boston",
-        "Chicago",
-        "Los Angeles",
-        "Dallas",
-        "San Diego",
-    ]
+    city_list = []
+    for code in Country.objects.all():
+        city_list.append(code.country_name)
     for i in city_list:
         try:
-            data = Course.objects.get(
-                course_city__city_name=i
+            data = Country.objects.get(
+                country_name=i
             )
-            end_date = data.course_end_date
+            end_date = data.ending_date
             today = date.today()
             if end_date < today:
-                data.status = False
+                data.cont_status = False
                 data.save()
             else:
-                data.status = True
+                data.cont_status = True
                 data.save()
         except:
             pass
@@ -76,50 +62,64 @@ def ajax_filter(request):
         coordinates = "{}, {}".format(lat, lon)
         location = locator.reverse(coordinates)
         data = list(location)
+        raw_data = location.raw
+        address = raw_data['address']
+        country_code = address['country_code']
+        converted_country_code = country_code.upper()  # Country code from live location
+
         first_index = data[0]
-        split = first_index.split(",")
 
-        city_list = [
-            "Surat",
-            "Valsad",
-            "Ahmedabad",
-            "Kolkata",
-            "Unknown",
-            "New York City",
-            "Miami",
-            "Philadelphia",
-            "Houston",
-            "Atlanta",
-            "Boston",
-            "Chicago",
-            "Los Angeles",
-            "Dallas",
-            "San Diego",
-        ]
+        data_country = []  # Data of st_date, end_date, cntry_code after matching Country code
+        db_code = Country.objects.all()
+        for k in db_code:
+            if k.country_name == converted_country_code:
+                try:
+                    data_country.append({
+                        "Country_code": k.country_name,
+                        "Starting_date": k.start_date,
+                        "Ending_Date": k.ending_date,
+                        "Status" : k.cont_status,
+                    })
+                    break
+                except:
+                    data_country.append({
+                        "Country_code": "Country_code",
+                        "Starting_date": "Starting_date",
+                        "Ending_Date": "Ending_Date",
+                        "Status": "Status",
+                    })
 
-        first_add = split[0]
-        second_add = split[1]
-        print("**********")
-        print("**********")
-        print(first_index)
-        print(first_add)
-        print(second_add)
-        print("**********")
-        print("**********")
-        check = [i for i in city_list if i in list(first_index.split(','))]
-        if check:
-            data = Course.objects.get(
-                course_city__city_name__in=check
-            )
-            data_check = serializers.serialize(
-                "json", [data], ensure_ascii=False
-            )
-            return JsonResponse(
-                {
-                    "data": data_check,
-                    "first_index": first_index,
-                }
-            )
+            else:
+                pass
 
-        else:
-            return JsonResponse({"data": "Unknown"})
+        city_name = []  # City Name According Live Location
+        city_data = City.objects.all()
+
+        for j in city_data:
+            if j.city_name in list(first_index.split(',')):
+                try:
+                    city_name.append({
+                        "City_name": j.city_name,
+                        "Country_Code": j.country_code
+                    })
+                except:
+                    city_name.append({
+                        "City_name": "City_name",
+                        "Country_Code": "Country_Code"
+                    })
+
+        check = []
+        if data_country[0]["Country_code"] == city_name[0]["Country_Code"]:
+            check.append({
+                "country_code": data_country[0]["Country_code"],
+                "st_date": data_country[0]["Starting_date"],
+                "end_date": data_country[0]["Ending_Date"],
+                "city_name": city_name[0]["City_name"],
+                "status": data_country[0]["Status"],
+            })
+
+        return JsonResponse(
+            {
+                "data": check[0],
+            }
+        )
