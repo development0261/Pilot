@@ -3,24 +3,6 @@ from tinymce.models import HTMLField
 
 # Create your models here.
 
-CHOICES_CITY = (
-    ("Seattle", "Seattle"),
-    ("New York", "New York"),
-    ("Philadelphia", "Philadelphia"),
-    ("Boston", "Boston"),
-    ("Chicago", "Chicago"),
-    ("Los Angeles", "Los Angeles"),
-    ("San Diego", "San Diego"),
-    ("Dallas", "Dallas"),
-    ("Houston", "Houston"),
-    ("Atlanta", "Atlanta"),
-    ("Miami", "Miami"),
-    ("Surat", "Surat"),
-    ("Valsad", "Valsad"),
-    ("Kolkata", "Kolkata"),
-    ("Ahmedabad", "Ahmedabad"),
-)
-
 CHOICES_COUNTRY = (
     ('AF', 'AF'),
     ('AL', 'AL'),
@@ -280,56 +262,15 @@ class City(models.Model):
         return self.city_name
 
 
-class Country(models.Model):
-    country_name = models.CharField(
-        max_length=500,
-        choices=CHOICES_COUNTRY,
-        default=CHOICES_COUNTRY[0],
-        verbose_name="Choose Your Country",
-    )
-    start_date = models.DateField(
-        null=True,
-        blank=True,
-        verbose_name="Course Starting Date",
-    )
-    ending_date = models.DateField(
-        null=True,
-        blank=True,
-        verbose_name="Course Ending Date",
-    )
-    cont_status = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.country_name
-
-
-
 class Course(models.Model):
-    course_city = models.ForeignKey(
-        City,
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        verbose_name="Course City Name",
+    course_image = models.ImageField(
+        upload_to="Course Image", null=True, blank=True
     )
     course_title = models.CharField(
         max_length=500,
         null=True,
         blank=True,
         verbose_name="Course Title",
-    )
-    course_start_date = models.DateField(
-        null=True,
-        blank=True,
-        verbose_name="Course Starting Date",
-    )
-    course_end_date = models.DateField(
-        null=True,
-        blank=True,
-        verbose_name="Course Ending Date",
-    )
-    course_image = models.ImageField(
-        upload_to="Course Image", null=True, blank=True
     )
     course_description = HTMLField(
         null=True,
@@ -383,3 +324,27 @@ class Course(models.Model):
 
     def __str__(self):
         return self.course_title
+
+
+class Batch(models.Model):
+    batch_city = models.ForeignKey(
+        City,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        verbose_name="Batch For City",
+    )
+    batch_start_date = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name="Batch Starting Date",
+    )
+    batch_end_date = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name="Batch Ending Date",
+    )
+    batch_status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.batch_city.city_name

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Course, Country, City
+from .models import Course,  City, Batch
 from django.views.decorators.csrf import csrf_exempt
 from geopy.geocoders import Nominatim
 from django.http import HttpResponse, JsonResponse
@@ -13,20 +13,20 @@ from django.core.mail import send_mail
 
 def course_detail(request):
     city_list = []
-    for code in Country.objects.all():
-        city_list.append(code.country_name)
+    for code in Batch.objects.all():
+        city_list.append(code.id)
     for i in city_list:
         try:
-            data = Country.objects.get(
-                country_name=i
+            data = Batch.objects.get(
+                id=i
             )
-            end_date = data.ending_date
+            end_date = data.batch_end_date
             today = date.today()
             if end_date < today:
-                data.cont_status = False
+                data.batch_status = False
                 data.save()
             else:
-                data.cont_status = True
+                data.batch_status = True
                 data.save()
         except:
             pass
@@ -62,73 +62,38 @@ def ajax_filter(request):
         coordinates = "{}, {}".format(lat, lon)
         location = locator.reverse(coordinates)
         data = list(location)
-        raw_data = location.raw
-        address = raw_data['address']
-        country_code = address['country_code']
-        converted_country_code = country_code.upper()  # Country code from live location
 
         first_index = data[0]
-
-        data_country = []  # Data of st_date, end_date, cntry_code after matching Country code
-        db_code = Country.objects.all()
-        for k in db_code:
-            if k.country_name == converted_country_code:
-                try:
-                    data_country.append({
-                        "Country_code": k.country_name,
-                        "Starting_date": k.start_date,
-                        "Ending_Date": k.ending_date,
-                        "Status" : k.cont_status,
-                    })
-                    break
-                except:
-                    data_country.append({
-                        "Country_code": "Country_code",
-                        "Starting_date": "Starting_date",
-                        "Ending_Date": "Ending_Date",
-                        "Status": "Status",
-                    })
-
-            else:
-                pass
-
-        city_name = []  # City Name According Live Location
-        city_data = City.objects.all()
-
-        for j in city_data:
-            print("city_name",j.city_name)
-            print("location",[x.strip() for x in first_index.split(',')])
-            if j.city_name in [x.strip() for x in first_index.split(',')]:
-                try:
-                    city_name.append({
-                        "City_name": j.city_name,
-                        "Country_Code": j.country_code
-                    })
-                    break
-                except:
-                    city_name.append({
-                        "City_name": "City_name",
-                        "Country_Code": "Country_Code"
-                    })
-
-        print(city_name)
-        print(data_country)
-        check = []
-        print("*/***************")
-        print(len(data_country[0]["Country_code"]))
-        print(len(city_name[0]["Country_Code"]))
-        if data_country[0]["Country_code"] == city_name[0]["Country_Code"]:
-
-            check.append({
-                "country_code": data_country[0]["Country_code"],
-                "st_date": data_country[0]["Starting_date"],
-                "end_date": data_country[0]["Ending_Date"],
-                "city_name": city_name[0]["City_name"],
-                "status": data_country[0]["Status"],
+        city_data = []
+        for city in Batch.objects.all():
+            city_data.append({
+                "City_Name": city.batch_city.city_name,
+                "Starting_Date": city.batch_start_date,
+                "Ending_Date": city.batch_end_date,
+                "Status": city.batch_status,
             })
+
+        time_zone_data = []
+        for location in city_data:
+            if location["City_Name"] in [x.strip() for x in first_index.split(',')]:
+                try:
+                    time_zone_data.append({
+                        "City_Name": location["City_Name"],
+                        "Starting_Date": location["Starting_Date"],
+                        "Ending_Date": location["Ending_Date"],
+                        "Status": location["Status"],
+                    })
+                except:
+                    time_zone_data.append({
+                        "City_Name": "Unknown",
+                        "Starting_Date": "Unknown",
+                        "Ending_Date": "Unknown",
+                        "Status": "Unknown",
+                    })
+        print("****************************", time_zone_data)
 
         return JsonResponse(
             {
-                "data": check[0],
+                "data": time_zone_data,
             }
         )

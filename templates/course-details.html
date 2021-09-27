@@ -724,12 +724,14 @@
                     var longitude = position.coords.longitude
 
                     mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2ZWxvcG1lbnQwMjYxIiwiYSI6ImNrdGpvZGVxZDFkczQyb3A4ZzZkMTA5dmcifQ.hOxbLiqP0JgqpL7cbqU6SA';
+
                     const map = new mapboxgl.Map({
                         container: 'map', // Container ID
                         style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
                         center: [longitude, latitude], // Starting position [lng, lat]
                         zoom: 10, // Starting zoom level
                     });
+
 
                     $.ajax({
                         type: "POST",
@@ -740,36 +742,38 @@
                         },
                         dataType: "json",
                         success: function (res) {
-                            console.log(res.data)
 
-                            {#var data = JSON.parse(res.data)#}
-                            {#var fields = data[0].fields#}
-                            $(".city_name").append(res.data["city_name"])
-                            if (res.data["status"] === false) {
-                                $("#status").append(`
-                      <div class="course-info d-flex justify-content-between align-items-center">
-                         <div class="bouncing-text">
-                          <div class="c">C&nbsp;</div>
-                          <div class="l">L&nbsp;</div>
-                          <div class="o">O&nbsp;</div>
-                          <div class="s">S&nbsp;</div>
-                          <div class="e">E&nbsp;</div>
-                          <div class="d">D&nbsp;</div>
-                        </div>
-                      </div>
-                `)
-                                var date = document.getElementById('course_start_end_date');
-                                date.style = 'text-decoration: line-through';
+                            $(".city_name").append(res.data[0]["City_Name"])
+
+
+                            var count = 0;
+                            for (let i=0;i < res.data.length;i++){
+                                console.log(count++)
+                                console.log(res.data[i])
+
+                                if (res.data[i]["City_Name"] !== "Unknown"){
+
+                                    // For Batch for matched City
+                                    if (res.data[i]["Status"] === false){
+                                    $("#course_start_end_date").append(`
+                                    <p id="date_${count++}" style="text-decoration: line-through">${res.data[i]["Starting_Date"]} / ${res.data[i]["Ending_Date"]}</p>
+                                    `)
+                                }
+                                    else {
+                                   $("#course_start_end_date").append(`
+                                    <p id="date_${count++}">${res.data[i]["Starting_Date"]} / ${res.data[i]["Ending_Date"]}</p>
+                                    `)
+                                }
+                                }
+                                else {
+
+                                }
+
                             }
-
-
-                            $("#course_start_end_date").append(`
-                <p>${res.data["st_date"]} / ${res.data["end_date"]}</p>
-            `)
-
-
                         },
                     });
+
+
 
                 });
             } else {
