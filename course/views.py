@@ -102,6 +102,16 @@ def ajax_filter(request):
                             "Status": "Unknown",
                         }
                     )
+            else:
+                time_zone_data.append(
+                    {
+                        "City_Name": "Unknown",
+                        "Starting_Date": "Unknown",
+                        "Ending_Date": "Unknown",
+                        "Status": "Unknown",
+                    }
+                )
+
         print(
             "****************************", [x.strip() for x in first_index.split(",")]
         )
