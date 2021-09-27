@@ -16,6 +16,10 @@ class Extra_Batch(admin.ModelAdmin):
         "batch_status",
     ]
 
+    readonly_fields = [
+        "batch_status",
+    ]
+
 
 admin.site.register(Course)
 admin.site.register(Batch, Extra_Batch)
