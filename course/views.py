@@ -103,6 +103,9 @@ def ajax_filter(request):
                         }
                     )
         print(
+            "****************************", [x.strip() for x in first_index.split(",")]
+        )
+        print(
             "****************************", time_zone_data
         )
 
