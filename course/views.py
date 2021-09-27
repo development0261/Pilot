@@ -111,6 +111,7 @@ def ajax_filter(request):
                         "Status": "Unknown",
                     }
                 )
+                break
 
         print(
             "****************************", [x.strip() for x in first_index.split(",")]
