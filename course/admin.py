@@ -9,8 +9,13 @@ class PersonAdmin(ImportExportModelAdmin):
 
 
 class Extra_Batch(admin.ModelAdmin):
-    list_display = ["batch_city", "batch_start_date", "batch_end_date", "batch_status"]
+    list_display = [
+        "batch_city",
+        "batch_start_date",
+        "batch_end_date",
+        "batch_status",
+    ]
 
 
 admin.site.register(Course)
-admin.site.register(Batch,Extra_Batch)
+admin.site.register(Batch, Extra_Batch)

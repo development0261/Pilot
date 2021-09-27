@@ -3,6 +3,7 @@ from tinymce.models import HTMLField
 
 # Create your models here.
 
+
 class City(models.Model):
     city_name = models.CharField(
         max_length=500,
@@ -11,9 +12,8 @@ class City(models.Model):
         verbose_name="City Name",
     )
     country_code = models.CharField(
-        max_length=200,
-        null=True,
-        blank=True)
+        max_length=200, null=True, blank=True
+    )
 
     def __str__(self):
         return self.city_name
