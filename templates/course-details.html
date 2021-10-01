@@ -8,7 +8,7 @@
             <div class="container" data-aos="fade-up">
                 <div class="row">
                     <div class="col-lg-8">
-                        <img src="{% static 'img\course-details-tab-1.png' %}" class="img-fluid" alt="">
+                        <img src="" class="img-fluid" id="course_image" alt="">
 
                         <h3>Course Description</h3>
                       <span id="city_name"></span>
@@ -759,6 +759,10 @@
                                 Meetup_called.href = res.course_detail[0]["Meetup_called"];
 
 
+                                course_image = document.getElementById("course_image");
+                                course_image.src = res.course_detail[0]["course_img"];
+
+                                
                             }
                             else{
                                 $("#course_title").append(`
