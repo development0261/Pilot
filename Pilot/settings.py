@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'home',
     'tinymce',
     'import_export',
+    'sslserver',
 ]
 
 MIDDLEWARE = [

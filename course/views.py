@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from geopy.adapters import AdapterHTTPError
 from .models import Course, City, Batch
 from django.views.decorators.csrf import csrf_exempt
 from geopy.geocoders import Nominatim
@@ -53,15 +54,21 @@ def demo(request):
 
 @csrf_exempt
 def ajax_filter(request):
+   
     if request.method == "POST":
         lat = request.POST.get("latitude")
         lon = request.POST.get("longitude")
+     
         locator = Nominatim(user_agent="myGeocoder")
         coordinates = "{}, {}".format(lat, lon)
         location = locator.reverse(coordinates)
         data = list(location)
-
+        print(location.raw)
+        raw_data = location.raw
         first_index = data[0]
+        address = raw_data['address']
+        check = [address[x] for x in address]
+        print("Address ****************************",check)
         city_data = []
         for city in Batch.objects.all():
             city_data.append(
@@ -75,9 +82,7 @@ def ajax_filter(request):
 
         time_zone_data = []
         for location in city_data:
-            if location["City_Name"] in [
-                x.strip() for x in first_index.split(",")
-            ]:
+            if location["City_Name"] in check:
                 try:
                     time_zone_data.append(
                         {
@@ -113,9 +118,30 @@ def ajax_filter(request):
                 )
                 break
 
-        print(
-            "****************************", [x.strip() for x in first_index.split(",")]
-        )
+        course_detail = []
+
+        print(time_zone_data[0]['City_Name'])
+        for crs in Course.objects.all():
+            if time_zone_data[0]['City_Name'] in crs.course_city.city_name:
+                course_detail.append({
+                    "course_img" : crs.course_image.url,
+                    "course_title" : crs.course_title,
+                    "course_description":crs.course_description,
+                    "course_objective" :crs.course_objective,
+                    "course_eligibility" :crs.course_eligibility,
+                    "course_outline" :crs.course_outline,
+                    "professionals_linkedIn" :crs.professionals_linkedIn,
+                    "companies_linkedIn" : crs.companies_linkedIn,
+                    "jobs":crs.jobs,
+                    "LinkedIn_group_called":crs.LinkedIn_group_called,
+                    "Facebook_group_called":crs.Facebook_group_called,
+                    "Meetup_called":crs.Meetup_called,
+                    "status" :crs.status,
+
+                })
+            
+                
+        print("*****",course_detail)
         print(
             "****************************", time_zone_data
         )
@@ -123,5 +149,6 @@ def ajax_filter(request):
         return JsonResponse(
             {
                 "data": time_zone_data,
+                "course_detail" : course_detail,
             }
         )

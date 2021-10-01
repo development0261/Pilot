@@ -8,6 +8,15 @@ class PersonAdmin(ImportExportModelAdmin):
     pass
 
 
+class Extra_Course(admin.ModelAdmin):
+    list_display = [
+        "course_city",
+        "course_title"
+    ]
+    list_filter = [
+        "course_city"
+    ]
+
 class Extra_Batch(admin.ModelAdmin):
     list_display = [
         "batch_city",
@@ -21,5 +30,5 @@ class Extra_Batch(admin.ModelAdmin):
     ]
 
 
-admin.site.register(Course)
+admin.site.register(Course,Extra_Course)
 admin.site.register(Batch, Extra_Batch)

@@ -20,6 +20,7 @@ class City(models.Model):
 
 
 class Course(models.Model):
+    course_city = models.OneToOneField(City, unique=True,on_delete=models.CASCADE,null=True,blank=True,verbose_name="Course City")
     course_image = models.ImageField(
         upload_to="Course Image", null=True, blank=True
     )
