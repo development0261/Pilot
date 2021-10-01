@@ -79,8 +79,9 @@ def ajax_filter(request):
                     "Status": city.batch_status,
                 }
             )
-
+        print(city_data)
         time_zone_data = []
+    
         for location in city_data:
             if location["City_Name"] in check:
                 try:
@@ -110,8 +111,8 @@ def ajax_filter(request):
             else:
                 time_zone_data.append(
                     {
-                        "City_Name": "Unknown",
-                        "Starting_Date": "Unknown",
+                        "City_Name": "else",
+                        "Starting_Date": "else",
                         "Ending_Date": "Unknown",
                         "Status": "Unknown",
                     }
