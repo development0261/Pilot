@@ -85,8 +85,9 @@ class Course(models.Model):
 
 
 class Batch(models.Model):
-    batch_city = models.ForeignKey(
+    batch_city = models.OneToOneField(
         City,
+        unique=True,
         on_delete=models.CASCADE,
         null=True,
         blank=True,

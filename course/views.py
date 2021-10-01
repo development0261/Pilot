@@ -139,7 +139,7 @@ def ajax_filter(request):
                     "status" :crs.status,
 
                 })
-            
+        
                 
         print("*****",course_detail)
         print(
