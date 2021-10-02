@@ -83,13 +83,15 @@ def ajax_filter(request):
         city_name_db = []
         for city_name in range(len(city_data)):
             if city_data[city_name]["City_Name"] in check:
-
+                print(city_data[city_name]["City_Name"])
+                print(check)
                 city_name_db.append({
                    "City_Name" : city_data[city_name]["City_Name"],
                     "Starting_Date": city_data[city_name]["Starting_Date"],
                     "Ending_Date" : city_data[city_name]["Ending_Date"],
                     "Status" : city_data[city_name]["Status"],
                 })
+                break
             else:
                  city_name_db.append({
                    "City_Name" : "Unknown",
