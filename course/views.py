@@ -120,22 +120,7 @@ def ajax_filter(request):
 
                 })
             else:
-                course_detail.append({
-                    "course_img" : "Unknown",
-                    "course_title" : "Unknown",
-                    "course_description":"Unknown",
-                    "course_objective" :"Unknown",
-                    "course_eligibility" :"Unknown",
-                    "course_outline" :"Unknown",
-                    "professionals_linkedIn" :"Unknown",
-                    "companies_linkedIn" : "Unknown",
-                    "jobs":"Unknown",
-                    "LinkedIn_group_called":"Unknown",
-                    "Facebook_group_called":"Unknown",
-                    "Meetup_called":"Unknown",
-                    "status" :"Unknown",
-
-                })
+                pass
         
         print(course_detail)
         
