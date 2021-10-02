@@ -98,49 +98,11 @@ def ajax_filter(request):
         print("city name database **************",city_name_db)
 
 
-        time_zone_data = []
-        for location in city_data:
-            if location["City_Name"] in check:
-                try:
-                    time_zone_data.append(
-                        {
-                            "City_Name": location[
-                                "City_Name"
-                            ],
-                            "Starting_Date": location[
-                                "Starting_Date"
-                            ],
-                            "Ending_Date": location[
-                                "Ending_Date"
-                            ],
-                            "Status": location["Status"],
-                        }
-                    )
-                except:
-                    time_zone_data.append(
-                        {
-                            "City_Name": "Unknown",
-                            "Starting_Date": "Unknown",
-                            "Ending_Date": "Unknown",
-                            "Status": "Unknown",
-                        }
-                    )
-            else:
-                time_zone_data.append(
-                    {
-                        "City_Name": "else",
-                        "Starting_Date": "Unknown",
-                        "Ending_Date": "Unknown",
-                        "Status": "Unknown",
-                    }
-                )
-                break
 
         course_detail = []
 
-        print(time_zone_data[0]['City_Name'])
         for crs in Course.objects.all():
-            if time_zone_data[0]['City_Name'] in crs.course_city.city_name:
+            if city_name_db[0]['City_Name'] in crs.course_city.city_name:
                 course_detail.append({
                     "course_img" : crs.course_image.url,
                     "course_title" : crs.course_title,
@@ -176,10 +138,6 @@ def ajax_filter(request):
                 })
         
                 
-        
-        print(
-            "****************************", time_zone_data
-        )
         
         return JsonResponse(
             {
