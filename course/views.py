@@ -82,18 +82,24 @@ def ajax_filter(request):
         print("city_data ******",city_data)
         city_name_db = []
         for city_name in range(len(city_data)):
-            if city_data[city_name]["City_Name"] in check:
-                print(city_data[city_name]["City_Name"])
-                print(check)
-                city_name_db.append({
-                   "City_Name" : city_data[city_name]["City_Name"],
-                    "Starting_Date": city_data[city_name]["Starting_Date"],
-                    "Ending_Date" : city_data[city_name]["Ending_Date"],
-                    "Status" : city_data[city_name]["Status"],
-                })
-                break
-            else:
-                 pass
+            try:
+                if city_data[city_name]["City_Name"] in check:
+                    print(city_data[city_name]["City_Name"])
+                    print(check)
+                    city_name_db.append({
+                    "City_Name" : city_data[city_name]["City_Name"],
+                        "Starting_Date": city_data[city_name]["Starting_Date"],
+                        "Ending_Date" : city_data[city_name]["Ending_Date"],
+                        "Status" : city_data[city_name]["Status"],
+                    })
+                    break
+            except:
+                 city_name_db.append({
+                    "City_Name" : "Unknown",
+                        "Starting_Date": "Unknown",
+                        "Ending_Date" : "Unknown",
+                        "Status" : "Unknown",
+                    })
         
         print("city name database **************",city_name_db)
 
@@ -102,25 +108,42 @@ def ajax_filter(request):
         course_detail = []
 
         for crs in Course.objects.all():
-            if city_name_db[0]['City_Name'] in crs.course_city.city_name:
-                course_detail.append({
-                    "course_img" : crs.course_image.url,
-                    "course_title" : crs.course_title,
-                    "course_description":crs.course_description,
-                    "course_objective" :crs.course_objective,
-                    "course_eligibility" :crs.course_eligibility,
-                    "course_outline" :crs.course_outline,
-                    "professionals_linkedIn" :crs.professionals_linkedIn,
-                    "companies_linkedIn" : crs.companies_linkedIn,
-                    "jobs":crs.jobs,
-                    "LinkedIn_group_called":crs.LinkedIn_group_called,
-                    "Facebook_group_called":crs.Facebook_group_called,
-                    "Meetup_called":crs.Meetup_called,
-                    "status" :crs.status,
+            try:
+                if city_name_db[0]['City_Name'] in crs.course_city.city_name:
+                    course_detail.append({
+                        "course_img" : crs.course_image.url,
+                        "course_title" : crs.course_title,
+                        "course_description":crs.course_description,
+                        "course_objective" :crs.course_objective,
+                        "course_eligibility" :crs.course_eligibility,
+                        "course_outline" :crs.course_outline,
+                        "professionals_linkedIn" :crs.professionals_linkedIn,
+                        "companies_linkedIn" : crs.companies_linkedIn,
+                        "jobs":crs.jobs,
+                        "LinkedIn_group_called":crs.LinkedIn_group_called,
+                        "Facebook_group_called":crs.Facebook_group_called,
+                        "Meetup_called":crs.Meetup_called,
+                        "status" :crs.status,
 
-                })
-            else:
-                pass
+                    })
+            except:
+                course_detail.append({
+                        "course_img" : "Unknown",
+                        "course_title" : "Unknown",
+                        "course_description":"Unknown",
+                        "course_objective" :"Unknown",
+                        "course_eligibility" :"Unknown",
+                        "course_outline" :"Unknown",
+                        "professionals_linkedIn" :"Unknown",
+                        "companies_linkedIn" : "Unknown",
+                        "jobs":"Unknown",
+                        "LinkedIn_group_called":"Unknown",
+                        "Facebook_group_called":"Unknown",
+                        "Meetup_called":"Unknown",
+                        "status" :"Unknown",
+
+                    })
+            
         
         print(course_detail)
         
