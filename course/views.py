@@ -93,12 +93,7 @@ def ajax_filter(request):
                 })
                 break
             else:
-                 city_name_db.append({
-                   "City_Name" : "Unknown",
-                    "Starting_Date": "Unknown",
-                    "Ending_Date" : "Unknown",
-                    "Status" : "Unknown",
-                })
+                 pass
         
         print("city name database **************",city_name_db)
 
@@ -185,7 +180,7 @@ def ajax_filter(request):
         print(
             "****************************", time_zone_data
         )
-
+        
         return JsonResponse(
             {
                 "data": city_name_db,
