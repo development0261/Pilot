@@ -79,9 +79,29 @@ def ajax_filter(request):
                     "Status": city.batch_status,
                 }
             )
-        print(city_data)
+        print("city_data ******",city_data)
+        city_name_db = []
+        for city_name in range(len(city_data)):
+            if city_data[city_name]["City_Name"] in check:
+
+                city_name_db.append({
+                   "City_Name" : city_data[city_name]["City_Name"],
+                    "Starting_Date": city_data[city_name]["Starting_Date"],
+                    "Ending_Date" : city_data[city_name]["Ending_Date"],
+                    "Status" : city_data[city_name]["Status"],
+                })
+            else:
+                 city_name_db.append({
+                   "City_Name" : "Unknown",
+                    "Starting_Date": "Unknown",
+                    "Ending_Date" : "Unknown",
+                    "Status" : "Unknown",
+                })
+        
+        print("city name database **************",city_name_db)
+
+
         time_zone_data = []
-    
         for location in city_data:
             if location["City_Name"] in check:
                 try:
@@ -112,7 +132,7 @@ def ajax_filter(request):
                 time_zone_data.append(
                     {
                         "City_Name": "else",
-                        "Starting_Date": "else",
+                        "Starting_Date": "Unknown",
                         "Ending_Date": "Unknown",
                         "Status": "Unknown",
                     }
@@ -159,14 +179,14 @@ def ajax_filter(request):
                 })
         
                 
-        print("*****",course_detail)
+        
         print(
             "****************************", time_zone_data
         )
 
         return JsonResponse(
             {
-                "data": time_zone_data,
+                "data": city_name_db,
                 "course_detail" : course_detail,
             }
         )
