@@ -137,7 +137,7 @@ def ajax_filter(request):
 
                 })
         
-                
+        print(course_detail)
         
         return JsonResponse(
             {
